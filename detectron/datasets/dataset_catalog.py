@@ -201,7 +201,31 @@ _DATASETS = {
             _DATA_DIR + '/VOC2012/annotations/voc_2012_val.json',
         _DEVKIT_DIR:
             _DATA_DIR + '/VOC2012/VOCdevkit2012'
-    }
+    },
+    'publaynet_train': {
+        _IM_DIR:
+            _DATA_DIR + '/publaynet/train',
+        _ANN_FN:
+            _DATA_DIR + '/publaynet/train v2.json'  # train.json -> train v2.json: delete image items which not exists in "train" folder
+    },
+    'publaynet_minitrain': {
+        _IM_DIR:
+            _DATA_DIR + '/publaynet/train',
+        _ANN_FN:
+            _DATA_DIR + '/publaynet/minitrain.json'  # use to debug, test
+    },
+    'publaynet_val': {
+        _IM_DIR:
+            _DATA_DIR + '/publaynet/val',
+        _ANN_FN:
+            _DATA_DIR + '/publaynet/val.json'
+    },
+    'publaynet_test': {
+        _IM_DIR:
+            _DATA_DIR + '/publaynet/test',
+        _ANN_FN:
+            _DATA_DIR + '/publaynet/test_ids.json'
+    },
 }
 
 
