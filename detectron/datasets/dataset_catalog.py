@@ -206,19 +206,19 @@ _DATASETS = {
         _IM_DIR:
             _DATA_DIR + '/publaynet/train',
         _ANN_FN:
-            _DATA_DIR + '/publaynet/train v2.json'  # train.json -> train v2.json: delete image items which not exists in "train" folder
-    },
-    'publaynet_minitrain': {
-        _IM_DIR:
-            _DATA_DIR + '/publaynet/train',
-        _ANN_FN:
-            _DATA_DIR + '/publaynet/minitrain.json'  # use to debug, test
+            _DATA_DIR + '/publaynet/train_brief.json'
     },
     'publaynet_val': {
         _IM_DIR:
             _DATA_DIR + '/publaynet/val',
         _ANN_FN:
             _DATA_DIR + '/publaynet/val.json'
+    },
+    'publaynet_val_mini': {
+        _IM_DIR:
+            _DATA_DIR + '/publaynet/val_mini',
+        _ANN_FN:
+            _DATA_DIR + '/publaynet/val_mini.json'
     },
     'publaynet_test': {
         _IM_DIR:
