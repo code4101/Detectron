@@ -36,7 +36,7 @@ TRAIN:
   USE_FLIPPED: False
   SNAPSHOT_ITERS: 10000
 TEST:
-  DATASETS: ('publaynet_val',)
+  DATASETS: ('publaynet_val_mini',)
   SCALE: 400
   MAX_SIZE: 512
   NMS: 0.5

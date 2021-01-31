@@ -1,15 +1,15 @@
 MODEL:
   TYPE: generalized_rcnn
   CONV_BODY: FPN.add_fpn_ResNet101_conv5_body
-  NUM_CLASSES: 6
+  NUM_CLASSES: 6  # PubLayNet任务分6类：backgroup text title list table figure
   FASTER_RCNN: True
 NUM_GPUS: 1
 SOLVER:
-  WEIGHT_DECAY: 0.0001
+  WEIGHT_DECAY: 0.0001  # L2正则化的权重系数
   LR_POLICY: steps_with_decay
   # 1x schedule (note TRAIN.IMS_PER_BATCH: 1)
-  BASE_LR: 0.0001
-  GAMMA: 0.1
+  BASE_LR: 0.01
+  GAMMA: 0.1  # 学习率衰减系数，见STEPS的值，跑完12万次迭代后，BASE_LR会缩小为原来10%，跑完16万次后，会再缩小10%
   MAX_ITER: 180000
   STEPS: [0, 120000, 160000]
 FPN:
@@ -30,11 +30,11 @@ TRAIN:
   DATASETS: ('publaynet_train',)
   SCALES: (400,)
   MAX_SIZE: 512
-  IMS_PER_BATCH: 8
+  IMS_PER_BATCH: 8  # 每次迭代，每张卡上同时运行的图片数
   BATCH_SIZE_PER_IM: 512
   RPN_PRE_NMS_TOP_N: 2000  # Per FPN level
   USE_FLIPPED: False
-  SNAPSHOT_ITERS: 10000
+  SNAPSHOT_ITERS: 10000  # 每个几次迭代保存一次模型
 TEST:
   DATASETS: ('publaynet_val',)
   SCALE: 400
@@ -43,4 +43,4 @@ TEST:
   RPN_PRE_NMS_TOP_N: 1000  # Per FPN level
   RPN_POST_NMS_TOP_N: 1000
   FORCE_JSON_DATASET_EVAL: True
-OUTPUT_DIR: /home/chenkunze/publaynet/v1
+OUTPUT_DIR: /home/chenkunze/publaynet/210125  # 运行结果保存位置
